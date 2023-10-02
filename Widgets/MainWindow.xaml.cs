@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Widgets
 {
@@ -23,6 +24,16 @@ namespace Widgets
         public MainWindow()
         {
             InitializeComponent();
+            InitializeComboBox();
+        }
+
+        private void InitializeComboBox()
+        {
+            DataComboBox.Items.Add("Bilbo");
+            DataComboBox.Items.Add("Frodo");
+            DataComboBox.Items.Add("Gandalf");
+            DataComboBox.Items.Add("Aragorn");
+            DataComboBox.Items.Add("Gimli");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,6 +54,25 @@ namespace Widgets
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             ClickLabel.Content = "You unchecked the CheckBox !!!";
+        }
+
+        private void CounterButton_Click(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            CountProgressBar.Value = 0;            
+            
+            while(i < 100)
+            {
+                i++;
+                System.Threading.Thread.Sleep(50);                
+                CountProgressBar.Dispatcher.Invoke(() => CountProgressBar.Value = i, DispatcherPriority.Background);
+                PercentLabel.Content = i.ToString() + "%";
+            }           
+        }
+
+        private void DataComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ClickLabel.Content = "You chose: " + DataComboBox.SelectedItem.ToString();
         }
     }
 }
