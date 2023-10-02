@@ -24,5 +24,25 @@ namespace Widgets
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ClickLabel.Content = "Button Clicked";
+        }        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ClickLabel.Content = ATextBox.Text;
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            ClickLabel.Content = "You checked the CheckBox !!!";
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ClickLabel.Content = "You unchecked the CheckBox !!!";
+        }
     }
 }
