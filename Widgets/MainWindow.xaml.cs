@@ -29,11 +29,11 @@ namespace Widgets
 
         private void InitializeComboBox()
         {
-            DataComboBox.Items.Add("Bilbo");
-            DataComboBox.Items.Add("Frodo");
-            DataComboBox.Items.Add("Gandalf");
-            DataComboBox.Items.Add("Aragorn");
-            DataComboBox.Items.Add("Gimli");
+            DataComboBox.Items.Add("Eggs");
+            DataComboBox.Items.Add("Bacon");
+            DataComboBox.Items.Add("Toast");
+            DataComboBox.Items.Add("Waffle");
+            DataComboBox.Items.Add("Sausage");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
